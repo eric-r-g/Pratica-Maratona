@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <vector> 
 
 using namespace std;
 int main()
@@ -11,7 +11,6 @@ int main()
         cin >> l_sac[i];
         meta += l_sac[i];
     }
-
     
     // determinar se a meta é um número possivel (par) e se sim, dividir a soma total para obte-la
     if (meta % 2 == 1){
@@ -20,6 +19,8 @@ int main()
     }
     meta /= 2;
 
+    
+    
     /* 
     aqui eu inicei uma serie de preparativos para a proxima parte, são eles:
       - soma_poss que é uma lista de boleanos (serve para a programção dinamica), e com o 0 ja possivel.
@@ -44,26 +45,48 @@ int main()
 
             // aqui estamos operando a parte da programação dinamica. Se uma soma na posição j já foi alcançada,
             // e se a soma mais o valor da sacola ainda não foi, eu realizo todos os processos
-            if (soma_poss[j] and pos < meta and !soma_poss[pos]){
+            if (soma_poss[j] and pos <= meta and !soma_poss[pos]){
                 soma_poss[pos] = true;
 
                 // parte do bitmask para sabermos quais sacolas foram necessárias.
                 num_necessario[0][pos] = num_necessario[0][j];
                 num_necessario[1][pos] = num_necessario[1][j];
                 if (i < 50) num_necessario[0][pos] |= pot_de_2[i];
-                else num_necessario[0][pos] |= pot_de_2[i - 50];
+                else num_necessario[1][pos] |= pot_de_2[i - 50];
             }
         }
         
         if (soma_poss[meta]) break;
     }
     
+    vector <int> alice, bob;
     if (!soma_poss[meta]) cout << -1 << endl;
     else{
-        cout << num_necessario[0][meta];
+        for(int i = 0; i < n && i < 50; ++i){
+            if (num_necessario[0][meta] & pot_de_2[i]) alice.push_back(l_sac[i]);
+            else bob.push_back(l_sac[i]);
+        }
+        for(int i = 0; i < n - 50; ++i){
+            if (num_necessario[1][meta] & pot_de_2[i]) alice.push_back(l_sac[i + 50]);
+            else bob.push_back(l_sac[i + 50]);
+        }
+        
+        int saida_alice = 0, saida_bob = 0, i_a = 0, i_b = 0;
+        
+        for(int i = 0; i < n; ++i){
+            if (saida_alice <= saida_bob){
+                cout << alice[i_a] << " ";
+                saida_alice += alice[i_a];
+                i_a++;
+            }
+            else{
+                cout << bob[i_b] << " ";
+                saida_bob += bob[i_b];
+                i_b++;
+            }
+        }
     }
     
-    // o problema ainda não foi terminado, só sabemos se a soma é possivel e se sim, quais as sacolas necessarias 
-    // para chegar nesssa soma (as que não foram escolhidas vão servir para a outra pessoa chegar no mesmo valor).
+
     return 0;
 }
