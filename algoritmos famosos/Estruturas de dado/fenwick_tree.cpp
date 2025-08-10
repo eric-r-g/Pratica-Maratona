@@ -8,7 +8,6 @@ int n;
 
 // retorna a soma do intervalor 0, k
 int prefixSum(int k){
-    ++k; // correção do inicio no indice 1 na f_tree
     int soma = 0;
     
     for(int i = k; i > 0; i -= (i & -i))
@@ -24,7 +23,6 @@ int rangeSum(int ini, int fim){
 
 // atualizar a f_tree caso algum valor seja somado
 void update(int k, int val){
-    ++k;  // correção do inicio no indice 1 na f_tree
     for(int i = k; i <= n; i += (i & -i))
         f_tree[i] += val;
 
@@ -36,7 +34,7 @@ void build(){
         f_tree[i] += arr[i - 1];
         int j = i + (i & -i);
         if (j < n) 
-            f_tree[j] += arr[i - 1];
+            f_tree[j] += f_tree[i - 1];
     }
 
     return;
