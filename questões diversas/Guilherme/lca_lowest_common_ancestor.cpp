@@ -1,26 +1,47 @@
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <cmath>
+#include <bits/stdc++.h>
 using namespace std;
 
-typedef pair<int,int> pii;
+typedef pair<int, int> pii;
 
-int lca(vector<vector<int>>& g, vector<int>& pai, int v, int w, int tt) {
-    int n = g.size();
-    // Talvez o melhor a se fazer fosse atribuir um valor padrão suficientemente grande para l
-    // no lugar de realizar uma operação tão complexa quanto a de logaritmo com mudança de base...
-    int l = ceil(log(n)/log(2));
-    int u;
-    queue<pii> fila;
-    int raiz = -1;
-    static vector<int> nivel;
-    static vector<vector<int>> ancestral;
-    static int ttt = -1;
-    if (l == 0) return v;
-    if (ttt != tt) {
-        ttt = tt;
-        nivel = vector<int>(n);
+int lca(vector<vector<int>>& ancestral, vector<int>& nivel, int v, int u) {
+    if (nivel[u] < nivel[v]) swap(u, v);
+
+    for (int i = 10; i >= 0; i--) {
+        if (nivel[u] - (1<<i) >= nivel[v]) {
+            u = ancestral[u][i];
+        }
+    }
+
+    if (v == u) return v;
+
+    for (int i = 10; i >= 0; i--) {
+        if (ancestral[v][i] != -1 && ancestral[v][i] != ancestral[u][i]) {
+            v = ancestral[v][i];
+            u = ancestral[u][i];
+        }
+    }
+
+    return ancestral[v][0];
+}
+
+int main() {
+    int t, n, m, f, q, v, u, raiz;
+    cin >> t;
+    for (int tt = 0; tt < t; tt++) {
+        cin >> n;
+        vector<vector<int>> filhos(n);
+        vector<int> pai(n, -1), nivel(n);
+        vector<vector<int>> ancestral(n, vector<int>(11, -1));
+        queue<pii> fila;
+        for (int i = 0; i < n; i++) {
+            cin >> m;
+            for (int j = 0; j < m; j++) {
+                cin >> f;
+                f--;
+                filhos[i].push_back(f);
+                pai[f] = i;
+            }
+        }
         for (int i = 0; i < n; i++) {
             if (pai[i] == -1) {
                 raiz = i;
@@ -28,70 +49,28 @@ int lca(vector<vector<int>>& g, vector<int>& pai, int v, int w, int tt) {
             }
         }
         fila.push({raiz, 1});
-        while(!fila.empty()) {
-            u = fila.front().first;
-            nivel[u] = fila.front().second;
+        while (!fila.empty()) {
+            int a = fila.front().first;
+            nivel[a] = fila.front().second;
             fila.pop();
-            for (int z : g[u]) {
-                if (nivel[z] == 0) fila.push({z, nivel[u]+1});
+            for (int b : filhos[a]) {
+                fila.push({b, nivel[a]+1});
             }
         }
-        ancestral = vector<vector<int>>(n, vector<int>(l, -1));
         for (int i = 0; i < n; i++) {
             ancestral[i][0] = pai[i];
         }
-        for (int j = 1; j < l; j++) {
+        for (int j = 1; j < 11; j++) {
             for (int i = 0; i < n; i++) {
-                if (ancestral[i][j-1] != -1) {
-                    ancestral[i][j] = ancestral[ancestral[i][j-1]][j-1];
-                }
+                if (ancestral[i][j-1] != -1) ancestral[i][j] = ancestral[ancestral[i][j-1]][j-1];
             }
-        }
-    }
-
-    if (nivel[w] < nivel[v]) swap(v, w);
-
-    for (int i = l-1; i >= 0; i--) {
-        if (nivel[w] - (1<<i) >= nivel[v]) {
-            w = ancestral[w][i];
-        }
-    }
-
-    if (v == w) return v;
-
-    for (int i = l-1; i >= 0; i--) {
-        if (ancestral[v][i] != -1 && ancestral[v][i] != ancestral[w][i]) {
-            v = ancestral[v][i];
-            w = ancestral[w][i];
-        }
-    }
-
-    return pai[v];
-}
-
-int main() {
-    int t, n, m, q, v, w;
-    cin >> t;
-    for (int tt = 0; tt < t; tt++) {
-        cin >> n;
-        vector<vector<int>> g(n);
-        vector<int> pai(n, -1);
-        for (int i = 0; i < n; i++) {
-            cin >> m;
-            vector<int> filhos(m);
-            for (int j = 0; j < m; j++) {
-                cin >> filhos[j];
-                filhos[j]--;
-                pai[filhos[j]] = i;
-            }
-            g[i] = filhos;
         }
         cin >> q;
         cout << "Case " << tt+1 << ":" << endl;
         for (int i = 0; i < q; i++) {
-            cin >> v >> w;
-            v--; w--;
-            cout << lca(g, pai, v, w, tt)+1 << endl;
+            cin >> v >> u;
+            v--; u--;
+            cout << lca(ancestral, nivel, v, u)+1 << endl;
         }
     }
     return 0;
