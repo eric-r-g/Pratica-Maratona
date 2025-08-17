@@ -1,0 +1,50 @@
+#!/bin/bash
+
+if [ "$1" = "" -o "$2" = "" -o "$3" = "" ]; then
+    echo "O comando deve ser chamado da seguinte forma:"
+    echo "test-solution [Pasta com as questões] [Inicial da questão a ser resolvida] [Arquivo com o código de solução]"
+    exit 1
+fi
+
+problem_folder="$1/$2"
+numero_de_testes=$(ls -1 "$problem_folder/input/" | wc -l)
+
+i=1
+halign=
+
+if [ $numero_de_testes -ge 100 ]; then
+    halign=3
+elif [ $numero_de_testes -ge 10 ]; then
+    halign=2
+else
+    halign=1
+fi
+
+sh "$problem_folder/limits/cpp" > execution_limits
+# Time limit is in seconds
+time_limit=$(sed -n -e "1p" execution_limits)
+# Memory limit is in kibibytes (after multiplication)
+memory_limit=$(bc <<< "1024 * $(sed -n -e "3p" execution_limits)")
+
+g++ "$3" &&
+echo "Questão $2" &&
+for f in $(ls -1 "$problem_folder/input/"); do
+    /usr/bin/time -f "%e\n%M" ./a.out < "$problem_folder/input/$f" > output 2> execution_stats
+
+    time=$(sed -n -e "1p" execution_stats)
+    memory=$(sed -n -e "2p" execution_stats)
+
+    printf "T%-${halign}d: " "$i"
+    i=$[ $i + 1 ]
+
+    if [ $(bc <<< "$time > $time_limit") = 1 ]; then
+        echo "Tempo excedido."
+    elif [ $(bc <<< "$memory > $memory_limit") = 1 ]; then
+        echo "Memória excedida."
+    elif cmp -s output "$problem_folder/output/$f"; then
+        echo "Sucesso!"
+    else
+        echo "Resposta incorreta X"
+    fi
+done &&
+rm a.out output execution_limits execution_stats
