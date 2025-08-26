@@ -28,7 +28,7 @@ memory_limit=$(bc <<< "1024 * $(sed -n -e "3p" execution_limits)")
 
 g++ "$3" &&
 echo "Questão $2" &&
-for f in $(ls -1 "$problem_folder/input/"); do
+for f in $(ls -v -1 "$problem_folder/input/"); do
     /usr/bin/time -f "%e\n%M" ./a.out < "$problem_folder/input/$f" > output 2> execution_stats
 
     time=$(sed -n -e "1p" execution_stats)
