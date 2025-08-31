@@ -12,6 +12,6 @@ int main() {
         if (figs[x-1] == 0) n--; 
         figs[x-1] = 1;
     }
-    cout << n << endl;
+    cout << n << "\n";
     return 0;
 }

@@ -31,6 +31,6 @@ int main() {
     for (int k = 0; k < n; k++) {
         if (infectado[k]) res++;
     }
-    cout << res << endl;
+    cout << res << "\n";
     return 0;
 }

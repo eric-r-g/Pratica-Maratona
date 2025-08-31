@@ -25,6 +25,6 @@ int main() {
             dfs(g, visitados, a);
         }
     }
-    cout << grupos << endl;
+    cout << grupos << "\n";
     return 0;
 }

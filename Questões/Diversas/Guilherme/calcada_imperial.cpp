@@ -25,6 +25,6 @@ int main() {
             if (seq > maior) maior = seq;
         }
     }
-    cout << maior << endl;
+    cout << maior << "\n";
     return 0;
 }

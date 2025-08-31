@@ -15,7 +15,7 @@ int main() {
         }
     }
     for (int i = 0; i < n; i++) {
-        cout << pedras[i] << endl;
+        cout << pedras[i] << "\n";
     }
     return 0;
 }

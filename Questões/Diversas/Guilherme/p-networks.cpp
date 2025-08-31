@@ -25,7 +25,7 @@ void bubble_sort(vector<int> s) {
             cout << " " << res[i];
         }
     }
-    cout << endl;
+    cout << "\n";
 }
 
 int main() {
@@ -43,7 +43,7 @@ int main() {
         }
         for (bool v : p) {
             if (v == false) {
-                cout << "No solution" << endl;
+                cout << "No solution" << "\n";
                 b = 1;
                 break;
             }

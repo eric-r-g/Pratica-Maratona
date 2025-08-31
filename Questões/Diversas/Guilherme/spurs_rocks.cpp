@@ -28,7 +28,7 @@ int main() {
     while (true) {
         cin >> n;
         if (n == 0) break;
-        else if (inst > 1) cout << endl;
+        else if (inst > 1) cout << "\n";
         vector<team> teams(n);
         for (int i = 0; i < n * (n - 1) / 2; i++) {
             cin >> x >> y >> z >> w;
@@ -49,11 +49,11 @@ int main() {
             }
         }
         sort(teams.begin(), teams.end(), sortt);
-        cout << "Instancia " << inst << endl;
+        cout << "Instancia " << inst << "\n";
         for (int i = 0; i < n - 1; i++) {
             cout << teams[i].num << " ";
         }
-        cout << teams[n - 1].num << endl;
+        cout << teams[n - 1].num << "\n";
         inst++;
     }
     return 0;

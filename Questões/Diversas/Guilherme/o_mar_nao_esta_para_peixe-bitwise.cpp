@@ -17,6 +17,6 @@ int main() {
     for (int i = 0; i < maior; i++) {
         res += popcount(map[i]);
     }
-    cout << res << endl;
+    cout << res << "\n";
     return 0;
 }

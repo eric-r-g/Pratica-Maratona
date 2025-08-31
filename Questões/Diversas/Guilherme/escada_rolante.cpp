@@ -12,6 +12,6 @@ int main() {
         if (t2 >= t1 + 10) res += 10;
         else res += (t2 - t1);
     }
-    cout << res << endl;
+    cout << res << "\n";
     return 0;
 }

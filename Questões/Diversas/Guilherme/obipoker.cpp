@@ -17,7 +17,7 @@ int main() {
         for (int i = 1; i < 5; i++) {
             if (c[i] != c[i-1] + 1) cresce = false;
         }
-        cout << "Teste " << t+1 << endl;
+        cout << "Teste " << t+1 << "\n";
         if (cresce) cout << c[0] + 200;
         else {
             du = tri = quad = 0;
@@ -37,7 +37,7 @@ int main() {
             else if (du == 1) cout << p1;
             else cout << 0;
         }
-        cout << endl << endl;
+        cout << "\n" << "\n";
     }
     return 0;
 }

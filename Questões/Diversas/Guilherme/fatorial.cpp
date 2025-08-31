@@ -10,6 +10,6 @@ int fatorial(int n) {
 int main() {
     int n;
     cin >> n;
-    cout << fatorial(n) << endl;
+    cout << fatorial(n) << "\n";
     return 0;
 }

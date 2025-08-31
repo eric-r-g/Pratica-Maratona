@@ -29,7 +29,7 @@ int main() {
             vag.push_back(inp);
         }
         insertion_sort(vag);
-        cout << "Optimal train swapping takes " << swaps << " swaps." << endl;
+        cout << "Optimal train swapping takes " << swaps << " swaps." << "\n";
     }
     return 0;
 }

@@ -13,7 +13,7 @@ int main() {
     double media_camaras, desvio_medio;
     while(cin >> c >> s) {
         media_camaras = desvio_medio = 0.0;
-        if (set > 1) cout << endl;
+        if (set > 1) cout << "\n";
         vector<camara> camaras(c);
         vector<int> specimens(s);
         for (int i = 0; i < s; i++) {
@@ -34,7 +34,7 @@ int main() {
             camaras[ind_menor].itens.push_back(p);
             camaras[ind_menor].soma += p;
         }
-        cout << "Set #" << set << endl;
+        cout << "Set #" << set << "\n";
         for (int i = 0; i < c; i++) {
             media_camaras += camaras[i].soma;
 
@@ -43,13 +43,13 @@ int main() {
                 cout << camaras[i].itens[j];
                 if (j != camaras[i].itens.size() - 1) cout << " ";
             }
-            cout << endl;
+            cout << "\n";
         }
         media_camaras = (media_camaras / (double) c);
         for (int i = 0; i < c; i++) {
             desvio_medio += (abs(media_camaras - camaras[i].soma));
         }
-        cout << "IMBALANCE = " << desvio_medio << endl;
+        cout << "IMBALANCE = " << desvio_medio << "\n";
         set++;
     }
     return 0;

@@ -31,7 +31,7 @@ int main() {
         if (p.second < n-1 && grid[p.first][p.second+1] <= f) pilha.push({p.first, p.second+1});
     }
     for (int i = 0; i < n; i++) {
-        cout << gridchar[i] << endl;
+        cout << gridchar[i] << "\n";
     }
     return 0;
 }

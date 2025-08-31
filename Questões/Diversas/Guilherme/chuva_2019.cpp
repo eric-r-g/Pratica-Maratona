@@ -47,7 +47,7 @@ int main() {
         }
     }
     for (int i = 0; i < n; i++) {
-        cout << grid[i] << endl;
+        cout << grid[i] << "\n";
     }
     return 0;
 }

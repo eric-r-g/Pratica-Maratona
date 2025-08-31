@@ -26,6 +26,6 @@ int main() {
 			soma_atual -= c[i-1];
 		}
 	}
-	cout << maneiras << endl;
+	cout << maneiras << "\n";
 	return 0;
 }

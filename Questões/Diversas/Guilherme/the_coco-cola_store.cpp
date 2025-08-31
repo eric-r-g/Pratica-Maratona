@@ -15,7 +15,7 @@ int main() {
             n = r + q;
         } while (q > 0);
         if (r == 2) cheias++;
-        cout << cheias << endl;
+        cout << cheias << "\n";
     }
     return 0;
 }

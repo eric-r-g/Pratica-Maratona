@@ -7,6 +7,6 @@ int main() {
         cin >> num;
         vezes++;
     }
-    cout << vezes - 1 << endl;
+    cout << vezes - 1 << "\n";
     return 0;
 }

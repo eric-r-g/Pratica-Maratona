@@ -40,7 +40,7 @@ int main() {
             pag++;
             lin = 1;
         }
-        cout << pag << endl;
+        cout << pag << "\n";
     }
     return 0;
 }

@@ -20,7 +20,7 @@ int main() {
         disp.push(p);
     }
     for (int i = 0; i < n; i++) {
-        cout << (i + 1) << " " << vezes[i] << endl;
+        cout << (i + 1) << " " << vezes[i] << "\n";
     }
     return 0;
 }

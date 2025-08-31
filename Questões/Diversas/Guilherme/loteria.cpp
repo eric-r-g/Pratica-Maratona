@@ -28,6 +28,6 @@ int main() {
         cout << "azar";
         break;
     }
-    cout << endl;
+    cout << "\n";
     return 0;
 }

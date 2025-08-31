@@ -36,7 +36,7 @@ int main() {
         for (int i = 0; i < 3; i++) {
             cin >> x[i] >> y[i] >> c[i];
         }
-        cout << menor_tempo(px, py, x, y, c, rest) << endl;
+        cout << menor_tempo(px, py, x, y, c, rest) << "\n";
     }
     return 0;
 }

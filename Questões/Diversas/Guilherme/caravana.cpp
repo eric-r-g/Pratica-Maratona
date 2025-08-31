@@ -9,7 +9,7 @@ int main() {
         soma += p[i];
     }
     for (int i = 0; i < n; i++) {
-        cout << (soma / n) - p[i] << endl;
+        cout << (soma / n) - p[i] << "\n";
     }
     return 0;
 }

@@ -45,7 +45,7 @@ int main() {
     }
     if (res) cout << 'S';
     else cout << 'N';
-    cout << endl;
+    cout << "\n";
 
     return 0;
 }

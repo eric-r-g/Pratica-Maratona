@@ -55,7 +55,7 @@ int main() {
             g[u].push_back({v, p});
             g[v].push_back({u, p});
         }
-        cout << dijkstra(g, k, c) << endl;
+        cout << dijkstra(g, k, c) << "\n";
     }
     return 0;
 }

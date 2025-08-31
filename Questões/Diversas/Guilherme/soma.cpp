@@ -46,6 +46,6 @@ int main() {
         }
         if (p != -1) res += u - p;
     }
-    cout << res << endl;
+    cout << res << "\n";
     return 0;
 }

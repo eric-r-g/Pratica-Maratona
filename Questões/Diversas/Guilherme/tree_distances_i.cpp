@@ -46,6 +46,6 @@ int main() {
     for (int i = 0; i < n-1; i++) {
         cout << max(distancia_v[i], distancia_u[i]) << " ";
     }
-    cout << max(distancia_v[n-1], distancia_u[n-1]) << endl;
+    cout << max(distancia_v[n-1], distancia_u[n-1]) << "\n";
     return 0;
 }

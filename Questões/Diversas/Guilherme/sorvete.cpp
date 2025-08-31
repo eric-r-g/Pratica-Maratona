@@ -19,7 +19,7 @@ int main() {
         }
     }
     for (pair<int,int> intervalo : intervalos) {
-        cout << intervalo.first << " " << intervalo.second << endl;
+        cout << intervalo.first << " " << intervalo.second << "\n";
     }
     return 0;
 }

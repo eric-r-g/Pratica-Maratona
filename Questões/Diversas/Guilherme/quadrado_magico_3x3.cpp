@@ -15,7 +15,7 @@ int main() {
             s += map[i][j];
         }
         if (s != soma) {
-            cout << "NAO" << endl;
+            cout << "NAO" << "\n";
             exit(0);
         }
     }
@@ -25,7 +25,7 @@ int main() {
             s += map[j][i];
         }
         if (s != soma) {
-            cout << "NAO" << endl;
+            cout << "NAO" << "\n";
             exit(0);
         }
     }
@@ -34,7 +34,7 @@ int main() {
         s += map[i][i];
     }
     if (s != soma) {
-        cout << "NAO" << endl;
+        cout << "NAO" << "\n";
         exit(0);
     }
     s = 0;
@@ -42,9 +42,9 @@ int main() {
         s += map[i][2-i];
     }
     if (s != soma) {
-        cout << "NAO" << endl;
+        cout << "NAO" << "\n";
         exit(0);
     }
-    cout << "SIM" << endl;
+    cout << "SIM" << "\n";
     return 0;
 }

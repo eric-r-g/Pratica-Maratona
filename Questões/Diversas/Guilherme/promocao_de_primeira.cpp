@@ -34,6 +34,6 @@ int main() {
         g[b].push_back({a,e});
     }
     ret = dfs(g, visitado, 2);
-    cout << ret[2] << endl;
+    cout << ret[2] << "\n";
     return 0;
 }
