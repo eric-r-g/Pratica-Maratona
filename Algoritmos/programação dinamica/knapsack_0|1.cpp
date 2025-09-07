@@ -8,14 +8,14 @@ typedef vector <pair <long long, long long>> vpll;
 
 const int MAXN = 101;  
 const int MAXC = 100001;
+const long long inf = 0x3f3f3f3f3f3f3f3f; // ~= 10^18
+
 
 int n, c;
 int valores[MAXN], pesos[MAXN];
 
 // DP-Capacidade FORMA
 // valido para capacidade menores
-
-const long long inf = 0x3f3f3f3f3f3f3f3f; // ~= 10^18
 
 vector<long long> dp(c+1, -inf);
 
@@ -34,10 +34,9 @@ void solucao_dinamica_cap(){
 // DP-valores FORMA
 // valido para capacidade menores
 
-const long long inf = 0x3f3f3f3f3f3f3f3f; // ~= 10^18
 const int MAXVAL = 100000;
 
-vector<long long> dp(MAXVAL+1, -inf);
+vector<long long> dp(MAXVAL+1, inf);
 
 void solucao_dinamica_val(){
     dp[0] = 0;
