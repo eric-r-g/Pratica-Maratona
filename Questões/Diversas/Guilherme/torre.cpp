@@ -19,6 +19,6 @@ int main() {
             if (val > max) max = val;
         }
     }
-    cout << max << endl;
+    cout << max << "\n";
     return 0;
 }

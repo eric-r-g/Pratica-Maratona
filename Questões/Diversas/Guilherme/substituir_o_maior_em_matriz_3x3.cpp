@@ -16,7 +16,7 @@ int main() {
             else cout << map[i][j];
             cout << " ";
         }
-        cout << endl;
+        cout << "\n";
     }
     return 0;
 }

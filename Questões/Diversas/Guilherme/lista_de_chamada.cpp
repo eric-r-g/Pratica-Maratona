@@ -11,6 +11,6 @@ int main() {
         nomes.push_back(inp);
     }
     sort(nomes.begin(), nomes.end());
-    cout << nomes[k - 1] << endl;
+    cout << nomes[k - 1] << "\n";
     return 0;
 }

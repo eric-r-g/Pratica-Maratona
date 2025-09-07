@@ -22,7 +22,7 @@ int main() {
         }
         cin >> n >> k;
         if (n == 0 && k == 0) break;
-        cout << divide(n) << endl;
+        cout << divide(n) << "\n";
     }
     return 0;
 }

@@ -13,6 +13,6 @@ int main() {
     for (int i = 0; i < 12; i++) {
         if (repeticoes[i] == max) cout << i + 1 << " ";
     }
-    cout << endl;
+    cout << "\n";
     return 0;
 }

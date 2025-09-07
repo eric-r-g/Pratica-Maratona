@@ -32,6 +32,6 @@ int main() {
         g[v].push_back(u);
     }
     ld res = pos_ordem(g, visitado, 0, 0, 1.0);
-    cout << fixed << setprecision(6) << res << endl;
+    cout << fixed << setprecision(6) << res << "\n";
     return 0;
 }

@@ -11,7 +11,7 @@ int main() {
     while (true) {
         cin >> l;
         if (l == 0) break;
-        cout << fib(l) << endl;
+        cout << fib(l) << "\n";
     }
     return 0;
 }

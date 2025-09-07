@@ -13,7 +13,7 @@ int main() {
 	for (int i = 0; i < q; i++) {
 		cin >> a >> b;
 		long long res = x[b-1] - (a == 1 ? 0 : x[a-2]);
-		cout << res << endl;
+		cout << res << "\n";
 	}
     return 0;
 }

@@ -66,11 +66,11 @@ int main() {
             }
         }
         cin >> q;
-        cout << "Case " << tt+1 << ":" << endl;
+        cout << "Case " << tt+1 << ":" << "\n";
         for (int i = 0; i < q; i++) {
             cin >> v >> u;
             v--; u--;
-            cout << lca(ancestral, nivel, v, u)+1 << endl;
+            cout << lca(ancestral, nivel, v, u)+1 << "\n";
         }
     }
     return 0;

@@ -36,6 +36,6 @@ int main() {
         g[u].push_back({v, w});
     }
     res = dijkstra(g);
-    cout << res << endl;
+    cout << res << "\n";
     return 0;
 }

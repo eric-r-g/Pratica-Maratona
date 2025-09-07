@@ -34,7 +34,7 @@ void treat(string l) {
     for (int j = v[v.size() - 1].first; j < v[v.size() - 1].first + v[v.size() - 1].second; j++) {
         cout << l[j];
     }
-    cout << endl;
+    cout << "\n";
 }
 
 int main() {

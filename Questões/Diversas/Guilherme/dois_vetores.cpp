@@ -8,10 +8,10 @@ int main() {
         if (l % 2 == 0) cout << l << " "; // Lembrete: O resto da divisão de um número ímpar negativo por 2 é -1, não 1.
         else impar[i++] = l;
     }
-    cout << endl;
+    cout << "\n";
     for (int k = 0; k < i; k++) {
         cout << impar[k] << " ";
     }
-    cout << endl;
+    cout << "\n";
     return 0;
 }

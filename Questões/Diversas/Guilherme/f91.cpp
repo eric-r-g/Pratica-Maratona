@@ -11,7 +11,7 @@ int main() {
     while (true) {
         cin >> n;
         if (n == 0) break;
-        cout << "f91(" << n << ") = " << f91(n) << endl;
+        cout << "f91(" << n << ") = " << f91(n) << "\n";
     }
     return 0;
 }

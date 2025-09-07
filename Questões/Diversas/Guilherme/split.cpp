@@ -10,10 +10,10 @@ int main() {
     }
     soma = 0;
     for (i = 0; a[i] != maior; i++) soma += a[i];
-    cout << soma << endl;
+    cout << soma << "\n";
     i++;
     soma = 0;
     for (i; i < n; i++) soma += a[i];
-    cout << soma << endl;
+    cout << soma << "\n";
     return 0;
 }

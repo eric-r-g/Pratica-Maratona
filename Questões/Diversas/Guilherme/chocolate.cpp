@@ -8,6 +8,6 @@ int main() {
         cin >> i;
         pedacos += i - 1;
     }
-    cout << pedacos << endl;
+    cout << pedacos << "\n";
     return 0;
 }

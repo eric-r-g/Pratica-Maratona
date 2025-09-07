@@ -9,6 +9,6 @@ int main() {
     a %= 3;
     cin >> b;
     b = b % 3 == a ? (a + 1) % 3 : b % 3;
-    cout << 3 - a - b << endl;
+    cout << 3 - a - b << "\n";
     return 0;
 }

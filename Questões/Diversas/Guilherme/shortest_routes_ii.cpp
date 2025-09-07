@@ -46,7 +46,7 @@ int main() {
     for (int i = 0; i < q; i++) {
         cin >> a >> b;
         a--; b--;
-        cout << dist[a][b] << endl;
+        cout << dist[a][b] << "\n";
     }
     return 0;
 }

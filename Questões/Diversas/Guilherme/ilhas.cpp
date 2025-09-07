@@ -43,6 +43,6 @@ int main() {
     }
     cin >> s;
     s--;
-    cout << dijkstra(g, s) << endl;
+    cout << dijkstra(g, s) << "\n";
     return 0;
 }

@@ -12,7 +12,7 @@ int main() {
             dem += a;
             custo += abs(dem);
         }
-        cout << custo << endl;
+        cout << custo << "\n";
     }
     return 0;
 }

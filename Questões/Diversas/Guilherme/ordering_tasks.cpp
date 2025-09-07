@@ -31,7 +31,7 @@ int main() {
         for (int i = 0; i < n-1; i++) {
             cout << lista[i]+1 << " ";
         }
-        cout << lista[n-1]+1 << endl;
+        cout << lista[n-1]+1 << "\n";
     }
     return 0;
 }

@@ -75,6 +75,6 @@ int main() {
     }
     //insertion_sort(vec);
     merge_sort(vec, 0, vec.size() - 1);
-    cout << res << endl;
+    cout << res << "\n";
     return 0;
 }

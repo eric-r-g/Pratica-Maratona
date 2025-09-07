@@ -19,6 +19,6 @@ int main() {
             y = par.first;
         }
     }
-    cout << res << endl;
+    cout << res << "\n";
     return 0;
 }

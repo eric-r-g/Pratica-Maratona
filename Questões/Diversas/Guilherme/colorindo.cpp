@@ -26,6 +26,6 @@ int main() {
         cin >> a >> b;
         grid[a-1][b-1] = 2;
     }
-    cout << dfs(grid, x-1, y-1) << endl;
+    cout << dfs(grid, x-1, y-1) << "\n";
     return 0;
 }

@@ -17,6 +17,6 @@ int main() {
             pares++;
         }
     }
-    cout << pares << endl;
+    cout << pares << "\n";
     return 0;
 }

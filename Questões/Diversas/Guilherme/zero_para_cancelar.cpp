@@ -14,6 +14,6 @@ int main() {
     for (int i = 0; i < p; i++) {
         soma += nums[i];
     }
-    cout << soma << endl;
+    cout << soma << "\n";
     return 0;
 }

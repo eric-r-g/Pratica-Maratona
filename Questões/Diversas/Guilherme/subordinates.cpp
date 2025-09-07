@@ -30,6 +30,6 @@ int main() {
     for (int i = 0; i < n-1; i++) {
         cout << sub[i] << " ";
     }
-    cout << sub[n-1] << endl;
+    cout << sub[n-1] << "\n";
     return 0;
 }
