@@ -1,4 +1,5 @@
-*.out
-input
-*.vscode
-**Incompletas
+*
+!*.cpp
+!Outros/limites_complexidade.txt
+!Outros/template_code.cpp
+!Outros/test_solution
