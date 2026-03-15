@@ -1,36 +1,34 @@
 #include <bits/stdc++.h>
-
 using namespace std;
-const int MAXN = 1e5 + 1;
 
-int parent[MAXN], sz[MAXN];
-int n;
-
-void inicializar(int n){
-    for(int i = 1; i <= n; ++i){
-        parent[i] = i;
-        sz[i] = 1;
+typedef struct {
+    int num_of_elements;
+    vector<int> parent;
+    vector<int> size;
+    
+    void init(int n) {
+        num_of_elements = n;
+        parent = vector<int>(n+1);
+        size = vector<int>(n+1);
+        for (int i = 1; i <= n; ++i){
+            parent[i] = i;
+            size[i] = 1;
+        }
     }
-}
-
-int pai(int x){
-    if (parent[x] == x) return x;
-    else return parent[x] = pai(parent[x]);
-}
-
-void merge(int x, int y){
-    x = pai(x);
-    y = pai(y);
-
-    if(sz[x] > sz[y]){
-        parent[y] = parent[x];
-        sz[x] += sz[y];
-    } else {
-        parent[x] = parent[y];
-        sz[y] += sz[x];
+    
+    int find_set(int x) {
+        if (parent[x] == x) return x;
+        else return parent[x] = find_set(parent[x]);
     }
-}
-
-int main(){
-
-}
+    
+    void union_sets(int x, int y) {
+        x = find_set(x);
+        y = find_set(y);
+        if (x != y) {
+            if (size[x] < size[y])
+                swap(x, y);
+            parent[y] = x;
+            size[x] += size[y];
+        }
+    }
+} union_find;
