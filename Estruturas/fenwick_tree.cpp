@@ -2,51 +2,51 @@
 
 using namespace std;
 
-vector <int> f_tree;
-vector <int> arr;
-int n;
+// indexado em 1
+// ToDo: dá para deixar melhor visualmente
+// talvez explorar também variações
+struct f_tree{
+    vector <int> tree;
+    int n;
+    int msb;
 
-// retorna a soma do intervalor 0, k
-int prefixSum(int k){
-    int soma = 0;
-    
-    for(int i = k; i > 0; i -= (i & -i))
-        soma += f_tree[i];
-
-    return soma;
-}
-
-// retorna a soma do intervalor ini, fim
-int rangeSum(int ini, int fim){
-    return prefixSum(fim) - prefixSum(ini - 1);
-}
-
-// atualizar a f_tree caso algum valor seja somado
-void update(int k, int val){
-    for(int i = k; i <= n; i += (i & -i))
-        f_tree[i] += val;
-
-    return;
-}
-
-void build(){
-    for(int i = 1; i <= n; ++i){
-        f_tree[i] += arr[i - 1];
-        int j = i + (i & -i);
-        if (j < n) 
-            f_tree[j] += f_tree[i - 1];
+    f_tree(vector <int> &v) : tree(v.size() + 1){
+        n = v.size();
+        msb = 1;
+        while((msb << 1) <= n) msb <<= 1;
+        
+        for(int i = 1; i <= n; i++){
+            tree[i] += v[i - 1];
+            int j = i + (i & -i);
+            if (j <= n) 
+                tree[j] += tree[i];
+        }
     }
 
-    return;
-}
+    int busca(int j){
+        int sum = 0;
+        for(; j > 0; j -= j & -j)
+            sum += tree[j];
 
-int main(){
-    cin >> n;
-    f_tree.resize(n + 1);
-    arr.resize(n);
-    for(int i = 0; i < n; ++i){
-        cin >> arr[i];
+        return sum;
     }
-    // codigo restante do problema
-    return 0;
-}
+
+    void add(int j, int delta){
+        for(; j <= n; j += j & -j) 
+            tree[j] += delta;
+    }
+
+    int lower_bound(int val){
+        int pos = 0;
+        int soma = 0;
+
+        for(int i = msb; i > 0; i >>= 1){
+            if (pos + i <= n and (soma + tree[pos + i] < val)){
+                soma += tree[pos + i];
+                pos += i;
+            }
+        }
+
+        return pos + 1;
+    }
+};
