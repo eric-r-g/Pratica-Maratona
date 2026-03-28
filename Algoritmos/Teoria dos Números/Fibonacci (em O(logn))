@@ -1,0 +1,13 @@
+//Retorna {Fn, Fn+1}, O(log(n))
+pair<int, int> fib (int n) {
+    if (n == 0) return {0, 1};
+
+    auto p = fib(n >> 1);
+    int c = p.first * (2 * p.second - p.first);
+    int d = p.first * p.first + p.second * p.second;
+    if (n & 1) return {d, c + d};
+    else return {c, d};
+}
+//Considerando a sequência de fibonacci modulo p, há periodicidade (dois pares iguais) entre
+(F0, F1), (F1, F2), ... (Fp^2, Fp^2 + 1) -> basta achar um par cuja soma é 1 (F0 + F1)
+
